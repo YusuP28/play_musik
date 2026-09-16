@@ -1,5 +1,11 @@
 include ':app'
 
+def localPropertiesFile = new File(settingsDir, "local.properties")
+def localProperties = new Properties()
+if (localPropertiesFile.exists()) {
+    localProperties.load(new FileInputStream(localPropertiesFile))
+}
+
 def flutterRoot = localProperties.getProperty('flutter.sdk')
 if (flutterRoot == null) {
     def flutterSdkPath = System.getenv("FLUTTER_ROOT")
