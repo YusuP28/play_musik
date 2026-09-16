@@ -86,7 +86,7 @@ class _MusicHomePageState extends State<MusicHomePage> with SingleTickerProvider
 
     List<SongModel> songs = await _audioQuery.querySongs(
       sortType: sortType,
-      orderType: OrderType.DMA_ORDER,
+      orderType: null,
       uriType: UriType.EXTERNAL,
       ignoreCase: true,
     );
