@@ -23,14 +23,6 @@ if (flutterRoot == null) {
 }
 assert flutterRoot != null: "flutter.sdk not set in local.properties or FLUTTER_ROOT not defined."
 
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
-    repositories {
-        google()
-        mavenCentral()
-    }
-}
-
 include(":flutter")
 project(":flutter").projectDir = file("$flutterRoot/packages/flutter_tools/gradle")
 
