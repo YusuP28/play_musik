@@ -1,0 +1,23 @@
+include ':app'
+
+def flutterRoot = localProperties.getProperty('flutter.sdk')
+if (flutterRoot == null) {
+    def flutterSdkPath = System.getenv("FLUTTER_ROOT")
+    if (flutterSdkPath != null) {
+        flutterRoot = flutterSdkPath
+    }
+}
+assert flutterRoot != null: "flutter.sdk not set in local.properties or FLUTTER_ROOT not defined."
+
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.PREFER_SETTINGS)
+    repositories {
+        google()
+        mavenCentral()
+    }
+}
+
+include(":flutter")
+project(":flutter").projectDir = file("$flutterRoot/packages/flutter_tools/gradle")
+
+apply from: "$flutterRoot/packages/flutter_tools/gradle/app_plugin_loader.gradle"
